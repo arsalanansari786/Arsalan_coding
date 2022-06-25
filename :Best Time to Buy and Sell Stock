@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class Stock {
+	void buyAndSell(int []ar,int n){
+		int max=0;
+		for(int i=0;i<n;i++)
+		{
+			for(int j=i+1;j<n;j++){
+				if(ar[i]<ar[j]){
+					if(max<(ar[j]-ar[i]))
+						max=ar[j]-ar[i];
+				}
+			}
+		}
+		System.out.println(max);
+	}
+	public static void main(String[] args)
+	{
+		Stock x=new Stock();
+		int[] ar=new int[105];
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt(); //no of days you want to manage price in array
+		for(int i=0;i<n;i++)
+			ar[i]=sc.nextInt(); //price of given stock at ith day
+		sc.close();
+		x.buyAndSell(ar,n);
+	}
+}
